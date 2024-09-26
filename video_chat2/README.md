@@ -170,9 +170,10 @@ We build a diver instruction data with **2M** samples from 34 distince sources. 
 #### Usage
 - Prepare the envirment:
     ```shell
-    conda create -n videochat2 python=3.9
+    conda create -n videochat2 python=3.10
     conda activate videochat2
     pip install -r requirements.txt
+    pip install flash-attn --no-build-isolation
     ```
 - Stage1 training:
     - Download [UMT-L/16](https://huggingface.co/OpenGVLab/videochat2/resolve/main/l16_25m.pth) model and set `pretrained` in [stage1_config](scripts/videochat_vicuna/config_7b_stage1.py)

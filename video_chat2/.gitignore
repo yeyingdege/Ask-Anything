@@ -47,3 +47,4 @@ anno/
 wandb/
 logs/
 *.pth
+ckpt
