@@ -157,6 +157,10 @@ def load_video(video_path, num_segments=8, start_secs=-1, end_secs=-1,
 
     frames = transform(frames)
     # print(frames.shape)
+    if frames.shape[0] != num_segments:
+        num_concat_frames = num_segments - frames.shape[0]
+        concat_frames = torch.zeros((num_concat_frames, frames.shape[1], frames.shape[2], frames.shape[3])).type_as(frames).to(frames.device)
+        frames = torch.cat([frames, concat_frames], dim=0)
     
     if return_msg:
         fps = float(vr.get_avg_fps())
